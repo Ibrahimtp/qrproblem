@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Student Dashboard</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="/stylesheets/style2.css">
+    
+  
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+</head>
+
+<body onload="document.getElementById('acct').click()">
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3> PLVCS  </h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                
+             
+                <li>
+                 <a id="acct" href="#" onclick=""> Account </a>
+                </li>
+             
+                <li>
+                    <a href="#"> Dashboard </a>
+                </li>
+                <li onclick="getEvents('/event')">
+                    <a href="#" > Event/Activities</a>
+                </li>
+                    <li>
+                    <a href="#"> Notification</a>
+                </li>
+                
+                   <li>
+                    <a href="#">History </a>
+                </li>
+                   <li>
+                    <a href="#"> Logout</a>
+                </li>
+            </ul>
+
+        
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <p> </p>
+                    </button>
+
+                </div>
+            </nav>
+
+<div class="containter" id="mainC">
+  
+  <div class="container mx-auto">
+       <center>
+                 <h3 class="text-center"> please present your qr image for the EAO to scan and mark your attendance</h3>
+                 
+               <a href="data:image/png;<%= url%>">
+                 
+                 <img  src="data:image/png;<%= url %>"> </a>
+               </center>
+    
+    <h1 class="text-center"> Personal Information </h1>
+    <br>
+    <div class="row">
+      <div class="col d-3">
+        <p class="p-2 text-dark"> Student No: <%= currentStudent.studentNo%> </p>
+        <br>
+           <p class="p-2 text-dark">Surname : <%= currentStudent.surname%> </p>
+           <br>
+               <p class="p-2 text-dark"> First Name : <%= currentStudent.firstName%> </p>
+               <br>
+                   <p class="p-2 text-dark">Middle Name : <%= currentStudent.middleName%> </p>
+               <br>
+                   <p class="p-2 text-dark">Course : <%= currentStudent.course%> </p>
+               <br>
+                  <p class="p-2 text-dark"> Year: <%= currentStudent.year%> </p>
+               <br> 
+               <h2 class="text-center">Contact Number Incase of Emergency</h2>
+               <br>
+                   <p class="p-2 text-dark">Name : <%= currentStudent.emergencyName%> </p>
+               <br>
+                   <p class="p-2 text-dark">Number : <%= currentStudent.emergencyNumber%> </p>
+               <br>
+      </div>
+      
+      <div class="col">
+            <p class="p-2 text-dark">Username : <%= currentStudent.username%> </p>
+               <br>
+                   <p class="p-2 text-dark">Email : <%= currentStudent.email%> </p>
+               <br>
+                   <p class="p-2 text-dark">Contact Number : <%= currentStudent.contactNo%> </p>
+               <br>
+                   <p class="p-2 text-dark"> Address: <%= currentStudent.address%> </p>
+               <br>
+               
+               
+               
+            
+      </div>
+      
+    </div>
+    
+  </div>
+  
+</div>
+       
+
+
+        </div>
+    </div>
+<p id="studentdb"> <%= currentStudent._id %> </p>
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+        
+        </script>
+        
+        
+        <script>
+        
+    var student = document.getElementById('studentdb').textContent
+        
+        
+        function getEvents(a) {
+
+    async function fetchText(k) {
+      let ReporteEvents = `<div class="row" >` ;
+      let endEvent = `</div>`
+      try {
+
+        let response = await fetch(k);
+        let data = await response.text()
+        let arr = JSON.parse(data)
+
+       for(event of arr) {
+          ReporteEvents += ` <div onclick="join('/event/join/${event._id}/${student}')" class=" col   w-50 shadow">
+          
+          <p class="text-center">Event Name: ${event.eventName} </p>
+          <br>
+            <p class="text-center">Event No Of Required Hours: ${event.eventHours} </p>
+              <p class="text-center">Event Number of Students Allowed to Participate: ${event.eventNoOfStudent} </p>
+              <br>
+                  <p class="text-center">Event Venue: ${event.eventVenue} </p>
+          <br>
+               <p class="text-center">Event Date and Time: ${event.dateAndTime} </p>
+          <br>
+          <button class="btn btn-primary"> Click to Participate </button>
+          
+          </div>` ;
+        } 
+        
+        
+        
+        
+  document.getElementById('mainC').innerHTML = ReporteEvents + endEvent ;
+        }
+        
+      catch (err) {
+        alert("Please try again " + err)
+      }
+    }
+
+    fetchText(a)
+
+
+  }
+  
+  
+  
+  
+  async function join(a) {
+    alert(a)
+    let response = await fetch(a);
+    let data = await response.text() ;
+    alert(data) ;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  // Html Strings
+        
+        
+        
+        
+        
+    </script>
+</body>
+
+</html>
