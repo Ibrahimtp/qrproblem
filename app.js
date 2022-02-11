@@ -18,7 +18,7 @@ var app = express();
 
 const uri = "mongodb+srv://Ibrahim:ib130860011@cmrtcforum.dj6tu.mongodb.net/qrcodesla?retryWrites=true&w=majority";
 
-mongoose.connect('mongodb://localhost:27017/completedqrs',
+mongoose.connect(/*'mongodb://localhost:27017/completedqrs*/uri,
   {
     useNewUrlParser: true,
     // useFindAndModify: false,
